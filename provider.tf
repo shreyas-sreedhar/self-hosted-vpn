@@ -7,21 +7,25 @@ terraform {
   }
 }
 
-variable "do_token" {}
-variable "ssh_key_name" {}
+variable "do_token" {
+    type = string
+}
+variable "ssh_key_name" {
+    type = string
+}
 
 provider "digitalocean" {
   token = var.do_token
 }
+
+
 resource "digitalocean_droplet" "vpn_proxy" {
-  image    = "ubuntu-22-04-x64"
-  name     = "indian-vpn-proxy"
+  image    = "openvpn-18-04"
+  name     = "indian-openvpn"
   region   = "blr1"  # Bangalore (India)
   size     = "s-1vcpu-1gb"  # $6/month
   ssh_keys = [data.digitalocean_ssh_key.main.fingerprint]
 
-  # Userdat to install WireGuard and configure on startup
-  user_data = file("setup.sh")
 }
 
 data "digitalocean_ssh_key" "main" {
