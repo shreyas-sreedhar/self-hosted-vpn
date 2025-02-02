@@ -23,7 +23,7 @@ cd self-hosted-vpn
 
 ### 2. Configure Terraform variables
 
-Create a file named `terraform.tfvars` to store your sensitive data like API token and SSH key name. It should look like this:
+Create a file named `dev.tfvars` to store your sensitive data like API token and SSH key name. It should look like this:
 
 ```hcl
 do_token      = "<your-digitalocean-api-token>"
@@ -47,7 +47,7 @@ This will install the necessary Terraform provider (in this case, the DigitalOce
 To create the droplet, apply the Terraform configuration:
 
 ```sh
-terraform apply
+terraform apply -var-file=dev.tfvars
 ```
 
 Terraform will prompt you for confirmation before proceeding. Type `yes` to confirm.
