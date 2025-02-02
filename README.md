@@ -2,6 +2,8 @@
 
 This project sets up an OpenVPN server on DigitalOcean using Terraform. It automates the creation of a DigitalOcean Droplet, installs OpenVPN, and configures the server.
 
+Total cost: $6/month. Free if you have Digital Ocean Credits from github student developer pack
+
 ## Prerequisites
 
 Before you begin, make sure you have the following:
